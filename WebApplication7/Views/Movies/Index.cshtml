@@ -1,0 +1,42 @@
+﻿@model List<WebApplication7.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.ActionLink("Add new Movie", "Create", "Movies")
+<h2>Movie Details</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        @*<th>Movie ID</th>*@
+        <th>Movie Name</th>
+        <th>Genre Name</th>
+        <th>Action</th>
+        @*<th>Added Date</th>*@
+        @*<th>Release Date</th>*@
+    </tr>
+    <tbody>
+        @foreach (var i in Model)
+        {
+        <tr>
+            @*<td>
+            @i.ID
+        </td>*@
+            <td>
+                @Html.ActionLink(i.Name, "Details", "Movies", new { id = i.ID }, null)
+            </td>
+            <td>
+                @i.Genre.Name
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Movies", new { Id = i.ID }, null)
+            </td>
+            @*<td>
+            @i.DateAdded
+        </td>
+        <td>
+            @i.DateReleased
+        </td>*@
+        </tr>
+        }
+    </tbody>
+</table>

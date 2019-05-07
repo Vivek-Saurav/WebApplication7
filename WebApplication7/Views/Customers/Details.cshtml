@@ -1,0 +1,31 @@
+﻿@model WebApplication7.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<ul>   
+        <li>
+          Customer ID :  @Model.ID
+        </li>
+        <li>
+          Name  @Model.Name
+        </li>    
+    <li>
+       Date Of Birth : @Model.DateOfBirth
+    </li>
+    <li>
+        Membership Type : @Model.MembershipType.MembershipTypeName
+    </li>
+    <li>
+        Amount : @Model.MembershipType.Amount
+    </li>
+    <li>
+        Duration : @Model.MembershipType.DurationInMonth
+    </li>
+    <li>
+        Discount : @Model.MembershipType.Discount
+    </li>
+</ul>

@@ -1,0 +1,25 @@
+﻿@model WebApplication7.Models.Movie
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<ul>
+    <li>
+        Customer ID :  @Model.ID
+    </li>
+    <li>
+        Name  @Model.Name
+    </li>
+    <li>
+       Movie Added :  @Model.DateAdded
+    </li>
+    <li>
+       Release Date : @Model.DateReleased
+    </li>
+    <li>
+        Genre Name : @Model.Genre.Name
+    </li>
+</ul>

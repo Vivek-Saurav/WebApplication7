@@ -1,0 +1,43 @@
+﻿@model WebApplication7.ViewModel.CustomerMembershipViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(c=>c.Customer.ID)
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.Name)
+        @Html.TextBoxFor(c => c.Customer.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.DateOfBirth)
+        @Html.TextBoxFor(c => c.Customer.DateOfBirth, new { @class = "form-control" } )
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.MembershipType)
+        @Html.DropDownListFor(c => c.Customer.MembershipTypeID, new SelectList(Model.MembershipTypes, "ID", "MembershipTypeName"), "--Select--", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" name="cmdSubmit" value="Save Changes" class="btn btn-pr" />
+    </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/Scripts/jqueryui")
+
+    @Styles.Render("~/Styles/jquerycss")
+    
+    <script>
+        $(document).ready(function(){
+            $("#Customer_DateOfBirth").datepicker({
+                changeYear: true,
+                changeMonth: true
+                
+            });
+        });
+    </script>
+}
